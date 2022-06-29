@@ -6,7 +6,7 @@ const Home: NextPage = () => {
   const [data, setData] = useState()
   console.log(data)
 
-  const getQuery = async (query) => {
+  const getQuery = async (query: any) => {
     const res = await fetch(url, {
       method: 'POST',
       headers: {
@@ -15,10 +15,9 @@ const Home: NextPage = () => {
       body: JSON.stringify({ query }),
     })
     const data = await res.json()
-    setData(data.data.todos)
+    setData(data.data.todos.data)
   }
 
-  
   useEffect(() => {
     getQuery(`query FilterTodos($options: PageQueryOptions) {
       todos(options: $options) {
@@ -68,7 +67,12 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className='bg-gray-200 text-center mt-5'>list</div>
+      <div className='bg-gray-200 text-center mt-5'>
+        <h2>list</h2>
+        {data?.map((el: any) => (
+          <div>{el.title}</div>
+        ))}
+      </div>
     </div>
   )
 }
