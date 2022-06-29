@@ -26,6 +26,7 @@ const Home: NextPage = () => {
           title
           completed
           user {
+            id
             name
             address {
               city
@@ -68,7 +69,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className='bg-gray-200 text-center mt-5'>
-        <h2>list</h2>
+        <h2 className='text-blue-800' >list</h2>
         {data?.map((el: any) => (
           <div>{el.title}</div>
         ))}
