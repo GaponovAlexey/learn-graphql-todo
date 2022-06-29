@@ -72,8 +72,7 @@ const Home: NextPage = () => {
         <h2 className='text-blue-800'>list</h2>
         {data?.map((el: any) => (
           <div className='flex justify-center' key={el.id}>
-            <h3>{el.id}</h3>-
-            <h3>{el.title}</h3>-
+            <h3>{el.id}</h3>-<h3>{el.title}</h3>-
             <input type='radio' checked={el.completed} value={el.completed} />
           </div>
         ))}
